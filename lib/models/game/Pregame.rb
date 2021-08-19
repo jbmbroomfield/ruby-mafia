@@ -1,0 +1,2 @@
+class Pregame < DataClass
+end

@@ -1,0 +1,2 @@
+class Postgame < DataClass
+end

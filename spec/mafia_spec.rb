@@ -7,7 +7,7 @@ game = standard.test_game
 
 alice, bob, chris, derrick, esther, frank, gary = game.players
 
-describe "Basic Mechanics" do
+describe 'Basic Mechanics' do
     
     it "Active Players" do
         expect(game.active_players.count).to eq(game.players.count)
