@@ -1,13 +1,14 @@
 class NightActionsResolver
 
     @@resolution_order = [
+        'pre',
         # 'copy',
         # 'hide',
         # 'bus drive',
         'block',
         # 'redirect',
         'protect',
-        # 'misc',
+        'misc',
         'kill',
         # 'recruit',
         'inspect',

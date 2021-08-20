@@ -2,9 +2,9 @@ class Occupation < DataClass
 
     attr_accessor :name, :resolver, :role_string
 
-    def initialize(name)
+    def initialize(name, resolver_name = nil)
         @name = name
-        @resolver = Resolver.find_by(name: name)
+        @resolver = Resolver.find_by(name: resolver_name || name)
     end
 
     def to_s
@@ -19,4 +19,6 @@ Occupation.new_many(
     'Cop',
     'Godfather',
     'Doctor',
+    ['Vigilante', 'Kill'],
+    'Strongman',
 )
