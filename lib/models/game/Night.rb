@@ -7,28 +7,26 @@ class Night < DataClass
         self.game = game
         self.number = game.nights.count - (game.setup.daystart ? 0 : 1)
         self.actions = []
-        game.active_scum_teams.each do |team|
-            team.action = NightAction.new(self, 'kill')
-        end
         if number > 0
+            create_team_actions
             create_role_actions
         end
     end
 
+    def create_team_actions
+        game.active_scum_teams.each do |team|
+            team.action = NightAction.new(self, 'Kill')
+        end
+    end
+
     def create_role_actions
-        players_with_night_actions.each do |player|
-            player.role_action = NightAction.new(self, player.role.occupation, player)
+        game.active_players.each do |player|
+            NightAction.new(self, player.resolver) if player.resolver
         end
     end
 
-    def players_with_night_actions
-        game.active_players.filter do |player|
-            player.role.occupation && player.role.occupation.night_action
-        end
-    end
-
-    def ==(other)
-        other.to_s == to_s
+    def successful_actions
+        actions.filter { |action| action.successful }
     end
 
     def to_s
@@ -36,7 +34,7 @@ class Night < DataClass
     end
 
     def resolve_actions
-        resolver = NightActionResolver.new(actions)
+        resolver = NightActionsResolver.new(actions)
         resolver.resolve
     end
 

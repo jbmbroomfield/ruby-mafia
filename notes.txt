@@ -1,0 +1,48 @@
+TARGETED ACTION
+
+    INVESTIGATIVE
+        Cop
+        Goon Cop
+        Motion Detector
+        Neapolitan
+        Rolecop
+        Tracker
+        Vanilla Cop
+        Voyeur
+        Watcher
+
+    PREMODIFIER
+        Bodyguard
+        Doctor
+        Jailkeeper
+        Roleblocker
+        Rolestopper
+
+    POSTMODIFIER
+
+    OTHER
+        Vigilante
+
+
+
+PREMODIFIER
+    Ascetic
+    Bulletproof
+    Commuter
+    Ninja
+    Strongman
+
+POSTMODIFIER
+    Godfather
+    Miller
+
+OTHER
+    Flagbearer
+    Innocent Child
+    Jack of All Trades
+    Mason
+    Monk
+    Neighbor
+    Traitor
+    Universal Backup
+

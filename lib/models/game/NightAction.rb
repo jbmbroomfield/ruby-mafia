@@ -1,13 +1,22 @@
 class NightAction < DataClass
 
-    attr_accessor :night, :player, :target, :type, :successful, :result
+    attr_accessor :night, :resolver, :player, :target, :successful, :result
 
-    def initialize(night, type, player = nil)
+    def initialize(night, resolver, player = nil)
         night.actions << self
-        self.night = night
-        self.player = player
-        self.type = type
-        self.successful = true
+        @night = night
+        @resolver = resolver.is_a?(String) ? Resolver.find_by(name: resolver) : resolver
+        @player = player
+        @successful = true
+    end
+
+    def resolve
+        resolver.resolve(self)
+    end
+
+    def resolution
+        return if resolver.type == 'target' && !target
+        resolver.resolution
     end
 
     def block

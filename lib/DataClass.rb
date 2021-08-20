@@ -9,14 +9,6 @@ class DataClass
 
 	end
 
-	# def set_all(value)
-	# 	self.class.all = value
-	# end
-
-	# def get_all
-	# 	self.class.all || []
-	# end
-
 	def self.find_by(**kwargs)
 		self.all.find { |instance| self.all_match?(instance, **kwargs) }
 	end
