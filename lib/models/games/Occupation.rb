@@ -15,10 +15,13 @@ end
 
 
 Occupation.new_many(
-    'Innocent Child',
     'Cop',
-    'Godfather',
     'Doctor',
-    ['Vigilante', 'Kill'],
+    'Godfather',
+    'Innocent Child',
+    'Neapolitan',
+    'Rolecop',
     'Strongman',
+    ['Vigilante', 'Kill'],
+    'Vanilla Cop',
 )

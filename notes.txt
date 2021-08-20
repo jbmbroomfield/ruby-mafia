@@ -4,10 +4,10 @@ TARGETED ACTION
         -Cop
         Goon Cop
         Motion Detector
-        Neapolitan
-        Rolecop
+        /Neapolitan
+        /Rolecop
         Tracker
-        Vanilla Cop
+        /Vanilla Cop
         Voyeur
         Watcher
 
@@ -21,7 +21,7 @@ TARGETED ACTION
     POSTMODIFIER
 
     OTHER
-        /Vigilante
+        -Vigilante
 
 
 
@@ -30,7 +30,7 @@ PREMODIFIER
     Bulletproof
     Commuter
     Ninja
-    /Strongman
+    -Strongman
 
 POSTMODIFIER
     -Godfather

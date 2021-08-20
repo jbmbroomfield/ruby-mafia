@@ -23,6 +23,10 @@ class NightAction < DataClass
         resolver.resolution
     end
 
+    def make_innocent
+        resolver.make_innocent(self) rescue nil
+    end
+
     def block
         self.successful = false
     end

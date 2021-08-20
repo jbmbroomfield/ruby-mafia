@@ -65,4 +65,11 @@ class Player < DataClass
         game.phase.actions.filter { |action| action.player == self }
     end
 
+    def last_result
+        action = game.nights[-1].actions.find do |action2|
+            action2.player == self
+        end
+        action && action.result
+    end
+
 end
