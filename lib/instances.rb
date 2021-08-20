@@ -31,6 +31,6 @@ standard.add_roles(
     'Town',
     'Town',
     'Town',
-    'Mafia',
+    'Mafia Godfather',
     'Mafia'
 )

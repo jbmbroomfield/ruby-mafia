@@ -3,38 +3,38 @@ class Day < DataClass
     attr_accessor :game, :number, :votes
 
     def initialize(game)
+        game.days << self
         self.game = game
-        self.number = game.days.count + 1
+        self.number = game.days.count
         self.votes = game.active_players.map { |player| Vote.new(self, player)}
     end
 
     def ==(other)
-        other.to_s == self.to_s
+        other.to_s == to_s
     end
 
     def to_s
-        "#{self.game.terminology.day} #{self.number}"
+        "#{game.terminology.day} #{number}"
     end
 
     def vote_for(player, target)
-        vote = self.votes.find { |vote| vote.player == player }
+        vote = votes.find { |vote| vote.player == player }
         vote.target = target
-        self.exile(target) if self.votes_for(target).count >= self.votes_required
+        exile(target) if votes_for(target).count >= votes_required
     end
 
     def votes_for(target)
-        self.votes.filter { |vote| vote.target == target }
+        votes.filter { |vote| vote.target == target }
     end
 
     def votes_required
-        self.votes.count / 2 + 1
+        votes.count / 2 + 1
     end
 
     def exile(player)
-        game = self.game
         status = player.status
         status.eliminate(game.terminology.exiled, self)
-        game.next_phase
+        game.new_phase
     end
 
 end

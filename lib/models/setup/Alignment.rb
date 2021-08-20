@@ -11,4 +11,8 @@ class Alignment < DataClass
         self.name
     end
 
+    def scum?
+        self.alignment_type.scum
+    end
+
 end

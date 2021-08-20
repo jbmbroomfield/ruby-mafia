@@ -1,64 +1,83 @@
 class Game < DataClass
 
-    attr_accessor :setup, :name, :players, :phase, :days, :nights, :terminology
+    attr_accessor :setup, :name, :players, :phase, :days, :nights, :terminology, :teams
 
     def initialize(setup, name, users)
         setup.games << self
+        self.terminology = Terminology.new
         self.setup = setup
         self.players = []
-        self.assign_roles(users)
         self.days = []
         self.nights = []
+        self.teams = []
+        self.assign_roles(users)
         self.new_phase
-        self.terminology = Terminology.new
+    end
+
+    def active_players
+        players.filter { |player| player.active? }
+    end
+
+    def eliminated_players
+        players.filter { |player| !player.active? }
+    end
+
+    def assign_roles(users)
+        users.zip(setup.roles) do |user, role|
+            new_player(user, role) if user && role
+        end
+    end
+
+    def get_team(alignment)
+        teams.find { |team| team.alignment == alignment } || Team.new(self, alignment)
+    end
+
+    def scum_teams
+        teams.filter { |team| team.scum? }
+    end
+
+    def active_scum_teams
+        scum_teams.filter { |team| team.active? }
     end
 
     def new_player(*args)
         player = Player.new(self, *args)
-        self.players << player
+        players << player
         player
     end
 
-    def new_phase
-        self.phase ? self.next_phase : self.first_phase
+    def winner
+        return phase.winner if phase.is_a?(Postgame)
+        teams.find { |team| team.victory? }
     end
 
+    def new_phase
+        self.phase = phase ? next_phase : first_phase
+    end
+
+    private
+
     def next_phase
-        if self.phase.is_a?(Day)
-            self.setup.nightless ? self.new_day : self.new_night
+        if winner
+            Postgame.new(self, winner)
+        elsif phase.is_a?(Night)
+            phase.resolve_actions
+            new_day
         else
-            self.new_day
+            setup.nightless ? new_day : new_night
         end
     end
 
     def first_phase
-        self.setup.daystart ? self.new_day : self.new_night
+        setup.daystart ? new_day : new_night
     end
 
     def new_day
-        self.phase = Day.new(self)
-        self.days << self.phase
-        self.phase
+        Day.new(self)
     end
 
     def new_night
-        self.phase = Night.new(self)
-        self.nights << self.phase
-        self.phase
-    end
-
-    def active_players
-        self.players.filter { |player| player.active? }
-    end
-
-    def eliminated_players
-        self.players.filter { |player| !player.active? }
-    end
-
-    def assign_roles(users)
-        users.zip(self.setup.roles) do |user, role|
-            self.new_player(user, role) if user && role
-        end
+        Night.new(self)
     end
 
 end

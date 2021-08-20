@@ -18,4 +18,8 @@ class Role < DataClass
         end
     end
 
+    def scum?
+        self.alignment.scum?
+    end
+
 end
