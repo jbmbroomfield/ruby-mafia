@@ -4,10 +4,10 @@ TARGETED ACTION
         -Cop
         Goon Cop
         Motion Detector
-        /Neapolitan
-        /Rolecop
+        -Neapolitan
+        -Rolecop
         Tracker
-        /Vanilla Cop
+        -Vanilla Cop
         Voyeur
         Watcher
 
