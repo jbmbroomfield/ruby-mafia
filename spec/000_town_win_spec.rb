@@ -6,7 +6,12 @@ describe 'Basic Mechanics (1)' do
     
     it 'Teams' do
         expect(alice.team.to_s).to eq('Town')
+        expect(bob.team.to_s).to eq('Town')
+        expect(chris.team.to_s).to eq('Town')
+        expect(derrick.team.to_s).to eq('Town')
+        expect(esther.team.to_s).to eq('Town')
         expect(frank.team.to_s).to eq('Mafia')
+        expect(gary.team.to_s).to eq('Mafia')
         expect(alice.team.players.count).to eq(5)
         expect(alice.team.active_players.count).to eq(5)
         expect(frank.team.players.count).to eq(2)

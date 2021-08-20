@@ -21,7 +21,7 @@ class Night < DataClass
 
     def create_role_actions
         game.active_players.each do |player|
-            NightAction.new(self, player.resolver) if player.resolver
+            NightAction.new(self, player.resolver, player) if player.resolver
         end
     end
 

@@ -36,6 +36,6 @@ class AlignmentType < DataClass
     
 end
 
-town = AlignmentType.new('Town', false)
-mafia = AlignmentType.new('Mafia', true)
-serial_killer = AlignmentType.new('Serial Killer', true)
+AlignmentType.new('Town', false)
+AlignmentType.new('Mafia', true)
+AlignmentType.new('Serial Killer', true)

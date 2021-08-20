@@ -45,10 +45,6 @@ class Player < DataClass
         user.to_s
     end
 
-    def alignment
-        role.alignment
-    end
-
     def scum?
         role.scum?
     end
@@ -60,8 +56,9 @@ class Player < DataClass
     end
     
     def role_target(target)
-        return if !role.occupation || role.occupation.night_action != 'target'
-        role_action.target = target
+        if role.occupation && role.occupation.resolver && role.occupation.resolver.type == 'target'
+            actions[0].target = target
+        end
     end
 
     def actions

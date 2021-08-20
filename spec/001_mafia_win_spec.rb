@@ -5,6 +5,13 @@ alice, bob, chris, derrick, esther, frank, gary = game.players
 describe 'Basic Mechanics (2)' do
 
     it 'Mafia Victory' do
+        expect(alice.team.to_s).to eq('Town')
+        expect(bob.team.to_s).to eq('Town')
+        expect(chris.team.to_s).to eq('Town')
+        expect(derrick.team.to_s).to eq('Town')
+        expect(esther.team.to_s).to eq('Town')
+        expect(frank.team.to_s).to eq('Mafia')
+        expect(gary.team.to_s).to eq('Mafia')
         expect(game.phase.to_s).to eq('Night 0')
 
         game.new_phase

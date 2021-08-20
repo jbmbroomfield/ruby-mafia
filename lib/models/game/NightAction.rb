@@ -10,8 +10,12 @@ class NightAction < DataClass
         @successful = true
     end
 
+    def name
+        resolver.name
+    end
+
     def resolve
-        resolver.resolve(self)
+        resolver.resolve(self) if self.successful
     end
 
     def resolution
@@ -24,23 +28,7 @@ class NightAction < DataClass
     end
 
     def to_s
-        "#{night}: #{type} - #{player} => #{target}"
-    end
-
-    def occupation?
-        type.is_a?(Occupation)
-    end
-
-    def name
-        occupation? ? type.name : type
-    end
-
-    def investigative?
-        occupation? && type.investigative?
-    end
-
-    def protection
-        occupation? && type.protection
+        "#{night}: #{resolver.type} - #{player} => #{target}"
     end
 
 end

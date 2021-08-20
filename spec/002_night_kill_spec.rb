@@ -2,10 +2,17 @@ standard = Setup.find_by(name: 'Standard')
 game = standard.test_game
 alice, bob, chris, derrick, esther, frank, gary = game.players
 town = alice.team
-mafia = frank.team
+# mafia = frank.team
 
 describe 'Night Kill' do
     it 'Night Kill' do
+        expect(alice.team.to_s).to eq('Town')
+        expect(bob.team.to_s).to eq('Town')
+        expect(chris.team.to_s).to eq('Town')
+        expect(derrick.team.to_s).to eq('Town')
+        expect(esther.team.to_s).to eq('Town')
+        expect(frank.team.to_s).to eq('Mafia')
+        expect(gary.team.to_s).to eq('Mafia')
         game.new_phase
         game.new_phase
         expect(game.phase.to_s).to eq('Night 1')
