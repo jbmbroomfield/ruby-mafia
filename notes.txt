@@ -2,6 +2,7 @@ TARGETED ACTION
 
     INVESTIGATIVE
         -Cop
+        Follower
         Goon Cop
         Motion Detector
         -Neapolitan
