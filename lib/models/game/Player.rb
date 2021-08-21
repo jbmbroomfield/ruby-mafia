@@ -1,6 +1,6 @@
 class Player < DataClass
 
-    attr_accessor :game, :user, :role, :team, :status, :role_action
+    attr_accessor :game, :user, :role, :team, :status, :role_action, :rank
 
     def initialize(game, user, role)
         @game = game
@@ -9,6 +9,10 @@ class Player < DataClass
         @team = game.get_team(role.alignment)
         @team.players << self
         @status = PlayerStatus.new(self)
+    end
+
+    def rank
+        game.players.index(self)
     end
 
     def alignment
@@ -57,7 +61,8 @@ class Player < DataClass
     
     def role_target(target)
         if role.occupation && role.occupation.resolver && role.occupation.resolver.type == 'target'
-            actions[0].target = target
+            action = actions.find { |action2| action2 != self.team.action}
+            action.target = target if action
         end
     end
 
@@ -69,7 +74,11 @@ class Player < DataClass
         action = game.nights[-1].actions.find do |action2|
             action2.player == self
         end
-        action && action.result
+        result = action && action.result
+        if result.is_a?(Array)
+            result = result.map { |item| item.to_s }
+        end
+        result
     end
 
 end

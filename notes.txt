@@ -6,10 +6,10 @@ TARGETED ACTION
         Motion Detector
         -Neapolitan
         -Rolecop
-        Tracker
+        -Tracker
         -Vanilla Cop
         Voyeur
-        Watcher
+        -Watcher
 
     PREMODIFIER
         Bodyguard
@@ -29,7 +29,7 @@ PREMODIFIER
     Ascetic
     Bulletproof
     Commuter
-    Ninja
+    -Ninja
     -Strongman
 
 POSTMODIFIER

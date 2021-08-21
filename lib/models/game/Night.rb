@@ -29,6 +29,10 @@ class Night < DataClass
         actions.filter { |action| action.successful }
     end
 
+    def visible_actions
+        actions.filter { |action| action.visible }
+    end
+
     def to_s
         "#{game.terminology.night} #{number}"
     end

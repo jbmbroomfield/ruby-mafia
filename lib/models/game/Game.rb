@@ -23,7 +23,7 @@ class Game < DataClass
     end
 
     def assign_roles(users)
-        users.zip(setup.roles) do |user, role|
+        users.zip(setup.roles).each do |user, role|
             new_player(user, role) if user && role
         end
     end

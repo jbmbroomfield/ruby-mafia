@@ -1,6 +1,6 @@
 class NightAction < DataClass
 
-    attr_accessor :night, :resolver, :player, :target, :successful, :result
+    attr_accessor :night, :resolver, :player, :target, :successful, :result, :visible
 
     def initialize(night, resolver, player = nil)
         night.actions << self
@@ -8,6 +8,7 @@ class NightAction < DataClass
         @resolver = resolver.is_a?(String) ? Resolver.find_by(name: resolver) : resolver
         @player = player
         @successful = true
+        @visible = true
     end
 
     def name
@@ -32,7 +33,7 @@ class NightAction < DataClass
     end
 
     def to_s
-        "#{night}: #{resolver.type} - #{player} => #{target}"
+        "#{night}: #{resolver.name} - #{player} => #{target}"
     end
 
 end

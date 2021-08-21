@@ -20,8 +20,11 @@ Occupation.new_many(
     'Godfather',
     'Innocent Child',
     'Neapolitan',
+    'Ninja',
     'Rolecop',
     'Strongman',
+    'Tracker',
     ['Vigilante', 'Kill'],
     'Vanilla Cop',
+    'Watcher',
 )
