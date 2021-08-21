@@ -1,4 +1,4 @@
-kill = Resolver.new('Kill', 'target', 'kill')
+kill = Resolver.new('Kill', 'target', 'kill', 'attacked')
 def kill.resolve(action)
     phase = action.night
     method = phase.game.terminology.killed

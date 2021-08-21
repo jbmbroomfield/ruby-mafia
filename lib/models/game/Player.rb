@@ -1,6 +1,6 @@
 class Player < DataClass
 
-    attr_accessor :game, :user, :role, :team, :status, :role_action, :rank
+    attr_accessor :game, :user, :role, :team, :status, :role_action
 
     def initialize(game, user, role)
         @game = game

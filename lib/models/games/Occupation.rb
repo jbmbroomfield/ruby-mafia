@@ -17,6 +17,7 @@ end
 Occupation.new_many(
     'Cop',
     'Doctor',
+    'Follower',
     'Godfather',
     'Innocent Child',
     'Neapolitan',
@@ -26,5 +27,6 @@ Occupation.new_many(
     'Tracker',
     ['Vigilante', 'Kill'],
     'Vanilla Cop',
+    'Voyeur',
     'Watcher',
 )

@@ -1,4 +1,4 @@
-rolecop = Resolver.new('Rolecop', 'target', 'inspect')
+rolecop = Resolver.new('Rolecop', 'target', 'inspect', 'investigated')
 def rolecop.resolve(action)
     target = action.target
     action.result = target.occupation ? target.occupation.name : 'Vanilla'

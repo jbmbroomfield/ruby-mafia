@@ -1,4 +1,4 @@
-tracker = Resolver.new('Tracker', 'target', 'inspect')
+tracker = Resolver.new('Tracker', 'target', 'inspect', 'investigated')
 def tracker.resolve(action)
     action.result = []
     action.night.visible_actions.each do |action2|

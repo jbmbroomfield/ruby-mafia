@@ -1,4 +1,4 @@
-neapolitan = Resolver.new('Neapolitan', 'target', 'inspect')
+neapolitan = Resolver.new('Neapolitan', 'target', 'inspect', 'investigated')
 def neapolitan.resolve(action)
     target = action.target
     if target.alignment.alignment_type.name == 'Town' and target.occupation == nil

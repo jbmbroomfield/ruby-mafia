@@ -2,14 +2,14 @@ TARGETED ACTION
 
     INVESTIGATIVE
         -Cop
-        Follower
+        -Follower
         Goon Cop
         Motion Detector
         -Neapolitan
         -Rolecop
         -Tracker
         -Vanilla Cop
-        Voyeur
+        -Voyeur
         -Watcher
 
     PREMODIFIER

@@ -22,6 +22,9 @@ class NightActionsResolver
     end
 
     def resolve
+        # puts "actions"
+        # puts self.actions
+        # puts ''
         @@resolution_order.each do |resolution|
             resolve_by_resolution(resolution)
         end 

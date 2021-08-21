@@ -1,11 +1,12 @@
 class Resolver < DataClass
 
-    attr_accessor :name, :type, :resolution
+    attr_accessor :name, :type, :resolution, :verb
 
-    def initialize(name, type, resolution)
+    def initialize(name, type, resolution, verb = nil)
         @name = name
         @type = type
         @resolution = resolution
+        @verb = verb
     end
     
     def order_result(action)
