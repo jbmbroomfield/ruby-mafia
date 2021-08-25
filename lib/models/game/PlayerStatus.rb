@@ -1,23 +1,28 @@
 class PlayerStatus < DataClass
-
-    attr_accessor :player, :elimination_method, :elimination_phase, :elimination_order
     
     def initialize(player)
-        self.player = player
+        @player = player
+        activate
+    end
+
+    def activate
+        @elimination_method = nil
+        @elimination_phase = nil
+        @elimination_order = nil
     end
 
     def active?
-        self.elimination_method == nil
+        @elimination_method == nil
     end
 
     def eliminate(method, phase)
-        self.elimination_method = method
-        self.elimination_phase = phase
-        self.elimination_order = self.player.game.eliminated_players.count
+        @elimination_method = method
+        @elimination_phase = phase
+        @elimination_order = @player.game.eliminated_players.count
     end
 
     def to_s
-        self.active? ? self.game.terminology.active : "#{self.elimination_method} #{self.elimination_phase}"
+        active? ? @player.game.terminology.active : "#{@elimination_method} #{@elimination_phase}"
     end
 
 end

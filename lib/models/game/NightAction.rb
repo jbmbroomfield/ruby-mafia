@@ -9,6 +9,7 @@ class NightAction < DataClass
         @player = player
         @successful = true
         @visible = true
+        @target = nil
     end
 
     def name
@@ -33,7 +34,7 @@ class NightAction < DataClass
     end
 
     def to_s
-        "#{night}: #{resolver.name} - #{player} => #{target}"
+        "#{@night}: #{@resolver.name} - #{@player} => #{@target}"
     end
 
 end

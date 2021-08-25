@@ -47,6 +47,7 @@ class Game < DataClass
     end
 
     def winner
+        return nil if @setup.test
         return phase.winner if phase.is_a?(Postgame)
         teams.find { |team| team.victory? }
     end

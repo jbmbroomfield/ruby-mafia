@@ -3,8 +3,8 @@ TARGETED ACTION
     INVESTIGATIVE
         -Cop
         -Follower
-        Goon Cop
-        Motion Detector
+        -Goon Cop
+        -Motion Detector
         -Neapolitan
         -Rolecop
         -Tracker

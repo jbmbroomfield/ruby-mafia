@@ -1,6 +1,6 @@
 class Setup < DataClass
 
-    attr_accessor :name, :roles, :games, :daystart, :nightless
+    attr_accessor :name, :roles, :games, :daystart, :nightless, :test
 
     def initialize(name)
         self.name = name
@@ -8,6 +8,7 @@ class Setup < DataClass
         self.games = []
         self.daystart = false
         self.nightless = false
+        @test = false
     end
 
     def add_role(*args)

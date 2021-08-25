@@ -30,7 +30,7 @@ class Night < DataClass
     end
 
     def visible_actions
-        actions.filter { |action| action.visible }
+        actions.filter { |action| action.visible && action.target }
     end
 
     def to_s
